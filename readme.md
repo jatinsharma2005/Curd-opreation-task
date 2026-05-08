@@ -2,6 +2,10 @@
 
 A modern Full Stack Task Management Application built using the MERN Stack with JWT Authentication, Role-Based Access Control (RBAC), Admin Dashboard, and CRUD Operations.
 
+Admin Credentials:
+Email: jatinkumar20056@gmail.com
+Password: Jatin@0110
+
 ---
 
 # Features
