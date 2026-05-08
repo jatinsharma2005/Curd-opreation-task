@@ -49,11 +49,14 @@ export default function Dashboard() {
     try {
       const token = localStorage.getItem("token");
 
-      const res = await fetch("http://localhost:5000/api/v1/users", {
-        headers: {
-          Authorization: `Bearer ${token}`,
+      const res = await fetch(
+        "https://curd-opreation-task.onrender.com/api/v1/users",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         },
-      });
+      );
 
       const data = await res.json();
 
@@ -97,19 +100,22 @@ export default function Dashboard() {
     try {
       const token = localStorage.getItem("token");
 
-      await fetch(`http://localhost:5000/api/v1/users/${id}/role`, {
-        method: "PUT",
+      await fetch(
+        `https://curd-opreation-task.onrender.com/api/v1/users/${id}/role`,
+        {
+          method: "PUT",
 
-        headers: {
-          "Content-Type": "application/json",
+          headers: {
+            "Content-Type": "application/json",
 
-          Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${token}`,
+          },
+
+          body: JSON.stringify({
+            role: currentRole === "admin" ? "user" : "admin",
+          }),
         },
-
-        body: JSON.stringify({
-          role: currentRole === "admin" ? "user" : "admin",
-        }),
-      });
+      );
 
       toast.success("User role updated");
 
@@ -147,13 +153,16 @@ export default function Dashboard() {
     try {
       const token = localStorage.getItem("token");
 
-      await fetch(`http://localhost:5000/api/v1/users/${id}`, {
-        method: "DELETE",
+      await fetch(
+        `https://curd-opreation-task.onrender.com/api/v1/users/${id}`,
+        {
+          method: "DELETE",
 
-        headers: {
-          Authorization: `Bearer ${token}`,
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         },
-      });
+      );
 
       toast.success("User deleted successfully");
 
